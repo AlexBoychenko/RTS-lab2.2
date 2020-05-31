@@ -20,11 +20,11 @@ for i in range(n):
 w= np.zeros((int(N/2), int(N/2)))
 for i in range(int(N/2)):
     for k in range(int(N/2)):
-        w[i][k] = math.cos(2*math.pi/N * i * k ) + math.sin(2 * math.pi/N * i * k)
+        w[i][k] = math.cos(2*math.pi/N * i * k ) - math.sin(2 * math.pi/N * i * k)
 
 w_new = [0 for i in range(N)]
 for i in range(N):
-    w_new[i] = math.cos(2*math.pi/N * i ) + math.sin(2 * math.pi/N * i)
+    w_new[i] = math.cos(2*math.pi/N * i ) - math.sin(2 * math.pi/N * i)
 
 F_I = [0 for i in range(int(N/2))]
 F_II = [0 for i in range(int(N/2))]
