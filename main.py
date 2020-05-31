@@ -20,7 +20,7 @@ for i in range(n):
 w= np.zeros((int(N/2), int(N/2)))
 for i in range(int(N/2)):
     for k in range(int(N/2)):
-        w[i][k] = math.cos(4*math.pi/N * i * k ) + math.sin(4 * math.pi/N * i * k)
+        w[i][k] = math.cos(2*math.pi/N * i * k ) + math.sin(2 * math.pi/N * i * k)
 
 w_new = [0 for i in range(N)]
 for i in range(N):
@@ -42,17 +42,17 @@ for p in range(N):
         F[p] += F_II[p - int(N/2)] - w_new[p] * F_I[p - int(N/2)]
 end1 = time.time()
 start2 = time.time()
-F2 = np.fft.fft(x)
+D2 = np.dft.dft(x)
 end2 = time.time()
-print("Час виконання fft за допомогою програмної реалізації -", end1 - start1)
-print("Час виконання fft за допомогою numpy -", (end2*pow(10,10) - start2*pow(10,10)), "*10^-10")
+print("Час виконання dft за допомогою програмної реалізації -", end1 - start1)
+print("Час виконання dft за допомогою numpy -", (end2*pow(10,10) - start2*pow(10,10)), "*10^-10")
 fig = plt.figure()
 ax_1 = fig.add_subplot(2, 1, 1)
 ax_2 = fig.add_subplot(2, 1, 2)
 ax_1.plot(range(0, N), F)
-ax_2.plot(range(0, N), F2)
-ax_1.set(title='fft algorithm')
-ax_2.set(title='fft numpy')
+ax_2.plot(range(0, N), D2)
+ax_1.set(title='dft algorithm')
+ax_2.set(title='dft numpy')
 ax_1.grid()
 ax_2.grid()
 plt.show()
